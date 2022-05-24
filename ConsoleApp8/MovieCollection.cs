@@ -94,7 +94,6 @@ public class MovieCollection : IMovieCollection
             if (IsEmpty())
             {
                 root = new BTreeNode(movie);
-                Console.WriteLine(root.Movie.Title);
                 count++;
             }
             else
