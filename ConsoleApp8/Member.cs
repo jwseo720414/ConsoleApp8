@@ -2,7 +2,7 @@
 //The implementation of Member ADT
 using System;
 
-class Member : IMember
+public class Member : IMember
 {
     // Fields
     private string firstName;
