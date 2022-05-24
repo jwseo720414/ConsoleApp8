@@ -4,97 +4,113 @@ namespace ConsoleApp8
 {
     internal class Program
     {
+        private static void displayMainMenu()
+        {
+            Console.WriteLine("\n============================================================");
+            Console.WriteLine("Welcome to the Community Library Movie DVD Management System");
+            Console.WriteLine("============================================================");
+            Console.WriteLine("\n====================Main Menu====================\n");
+            Console.WriteLine("1. Staff Login");
+            Console.WriteLine("2. Member Login");
+            Console.WriteLine("0. Exit");
+            Console.WriteLine("\nEnter your choice ==> (1/2/0)");
+        }
+
+        private static void displayStaffMenu()
+        {
+            Console.WriteLine("\n====================Staff Menu====================\n");
+            Console.WriteLine("1. Add new DVDs of a new movie to the system");
+            Console.WriteLine("2. Remove DVDs of a movie from the system");
+            Console.WriteLine("3. Register a new member with the system");
+            Console.WriteLine("4. Remove a registered member from the system");
+            Console.WriteLine("5. Display a member's contact phone number, given the member's name");
+            Console.WriteLine("6. Dsiplay all members who are currently renting a particular movie");
+            Console.WriteLine("0. Return to main menu");
+            Console.WriteLine("\n\nEnter your choice ==> (1/2/3/4/5/6/0)");
+        }
+
+        private static void displayMemberMenu()
+        {
+            Console.WriteLine("\n====================Member Menu====================\n");
+            Console.WriteLine("1. Browse all the movies");
+            Console.WriteLine("2. Display all the information about a movie, given the title of the movie");
+            Console.WriteLine("3. Borrow a movie DVD");
+            Console.WriteLine("4. Return a movie DVD");
+            Console.WriteLine("5. List current borrowing movies");
+            Console.WriteLine("6. Display the top 3 movies rented by the members");
+            Console.WriteLine("0. Return to main menu");
+            Console.WriteLine("\n\nEnter your choice ==> (1/2/3/4/5/6/0)");
+        }
+
+        private static void processStaffMenu()
+        {
+            string staffID;
+            string staffPassword;
+
+            Console.Clear();
+            Console.WriteLine("\n====================Staff Login ====================\n");
+            Console.WriteLine("Please enter your username: ");
+            staffID = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("Please enter your password: ");
+            staffPassword = Convert.ToString(Console.ReadLine());
+
+            while (true)
+            {
+                if (staffID == "staff" && staffPassword == "today123")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect login credentials");
+                    Console.WriteLine("Enter any key to try again OR Enter 0 to return to main menu");
+                    string select = Console.ReadLine();
+                    if (select == "0")
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\n====================Staff Login ====================\n");
+                        Console.WriteLine("Please enter your username: ");
+                        staffID = Convert.ToString(Console.ReadLine());
+                        Console.WriteLine("Please enter your password: ");
+                        staffPassword = Convert.ToString(Console.ReadLine());
+                    }
+                }
+            }
+
+            Console.Clear();
+            displayStaffMenu();
+            string option = Console.ReadLine();
+        }
+
         static void Main(string[] args)
         {
-            
-            Movie movie = new Movie("Star wars", MovieGenre.Action, MovieClassification.M, 60, 3);
-            Movie movie6 = new Movie("Ztar wars", MovieGenre.Action, MovieClassification.M, 60, 3);
-
-            Movie movie1 = new Movie("Atar wars", MovieGenre.Action, MovieClassification.M, 60, 3);
-            Movie movie2 = new Movie("aaa", MovieGenre.Action, MovieClassification.M, 60, 3);
-            Movie movie3 = new Movie("aa", MovieGenre.Action, MovieClassification.M, 60, 3);
-            Movie movie4 = new Movie("b", MovieGenre.Action, MovieClassification.M, 60, 3);
-            Movie movie5 = new Movie("a", MovieGenre.Action, MovieClassification.M, 60, 3);
-
-
-
-            Member member = new Member("Jaewon", "seo", "0411289259", "1234");
-            //Member member1 = new Member("Jaewon1", "seo", "0411289259", "1234");
-
-            bool bo = movie.AddBorrower(member);
-            //bool bo1 = movie.AddBorrower(member1);
-            MovieCollection movieCollection = new MovieCollection();
-            //bool bo2 = movieCollection.IsEmpty();
-
-            Console.WriteLine(bo);
-            //Console.WriteLine(bo1);
-            //Console.WriteLine(bo2);
-            //Console.WriteLine(movie.Borrowers.ToString());
-            Console.WriteLine(movie.ToString());
-
-            //movieCollection.Insert(movie);
-            //movieCollection.Insert(movie1);
-            //movieCollection.Insert(movie2); 
-            //Console.WriteLine(movieCollection.IsEmpty());
-
-            Console.WriteLine(movieCollection.Insert(movie));
-            //Console.WriteLine(movieCollection.IsEmpty());
-
-            Console.WriteLine(movieCollection.Insert(movie6));
-
-            Console.WriteLine(movieCollection.Insert(movie1));
-            Console.WriteLine(movieCollection.Insert(movie2));
-            Console.WriteLine(movieCollection.Insert(movie3));
-            Console.WriteLine(movieCollection.Insert(movie4));
-            Console.WriteLine(movieCollection.Insert(movie5));
-            //Console.WriteLine(movieCollection.Number.ToString());
-            //Console.WriteLine(movieCollection.Delete(movie2));
-            //Console.WriteLine(movie.Title);
-            //movieCollection.PreOrderTraverse();
-            //movieCollection.InOrderTraverse();
-
-            //Console.WriteLine(movieCollection.Search(movie2));
-            //movieCollection.Insert(movie);
-            //movieCollection.Insert(movie1);
-            //movieCollection.Insert(movie2);
-
-            //if (movieCollection.Search("aaa") == null)
-            //{
-            //    Console.WriteLine("its NULL");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("its NOT NULL");
-            //}
-            IMovie[] movies = movieCollection.ToArray();
-            //Console.WriteLine(movies[0].Title.ToString());
-            for (int i = 0; i < movies.Length; i++)
+            displayMainMenu();
+            string select;
+            select = Console.ReadLine();
+            while (select != "0")
             {
-                Console.WriteLine(movies[i].Title.ToString());
+                if (select == "1")
+                {
+                    processStaffMenu();
+                }
+                else if (select == "2")
+                {
+                    displayMemberMenu();
+                    break;
+                }
+                else
+                {
+                    // show error
+                    Console.WriteLine("Invalid Choice! Please try again!");
+                }
+                Console.WriteLine();
+                displayMainMenu();
+                select = Console.ReadLine();
             }
-            Console.WriteLine(movies[2].ToString());
-
-
-
-            //Console.WriteLine(movieCollection.ToArray().Length);
-
-            //movieCollection.ToArray();
-            //Console.WriteLine(movieCollection.Search("aaa").ToString());
-
-
-            //Console.WriteLine(movieCollection.Search(movie1));
-            //Console.WriteLine(movieCollection.Search(movie2));
-
-            //Console.WriteLine(movieCollection.Delete(movie));
-
-
-
-
-
-
-
-
-            Console.ReadLine();
         }
     }
 }
