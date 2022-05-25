@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 
 
-class MemberCollection : IMemberCollection
+public class MemberCollection : IMemberCollection
 {
     // Fields
     private int capacity;
@@ -158,18 +158,11 @@ class MemberCollection : IMemberCollection
 
     public IMember Find(IMember member)
     {
-        //if (member == null)
-        //{
-        //    return null;
-        //}
-        //return null;
-
         for (int i = 0; i <= count - 1; i++)
         {
-            if (members[i] == member)
-                return member;
+            if (members[i].FirstName == member.FirstName && members[i].LastName == member.LastName)
+                return members[i];
         }
-        Console.WriteLine(member + " is not in the sorted list!");
         return null;
     }
 
