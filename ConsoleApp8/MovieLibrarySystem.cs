@@ -114,6 +114,29 @@ namespace ConsoleApp8
                 }                
             }
         }
+        
+        
+        public void DisplayMovies()
+        {
+            IMovie[] movies = allMovies.ToArray();
+            
+            if (movies.Length == 0)
+            {
+                Console.WriteLine("There are no movies added.");
+                return;
+            }
+            else 
+            {
+                for (int i = 0; i < movies.Length; i++)
+                {
+                    Console.WriteLine(movies[i].Title.ToString());
+                }
+
+            }
+        }
+
+
+
     }
 }
 

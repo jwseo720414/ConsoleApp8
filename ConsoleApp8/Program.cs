@@ -373,6 +373,7 @@ namespace ConsoleApp8
             {
                 if (option == "1")
                 {
+                    movieLibrarySystem.DisplayMovies();
                 }
                 else if (option == "2")
                 {
