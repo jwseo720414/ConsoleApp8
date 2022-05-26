@@ -130,11 +130,29 @@ namespace ConsoleApp8
                 for (int i = 0; i < movies.Length; i++)
                 {
                     Console.WriteLine(movies[i].Title.ToString());
+                    Console.WriteLine(movies[i].AvailableCopies.ToString());
                 }
 
             }
         }
 
+        public void DisplayInfo(string movieName)
+        {
+            IMovie movie = allMovies.Search(movieName);
+            if (movie == null)
+            {
+                Console.WriteLine("The movie doesn't exists in the system!.");
+                return;
+            }
+            else
+            {
+                Console.WriteLine(movie.Title.ToString());
+                Console.WriteLine(movie.Genre.ToString());
+                Console.WriteLine(movie.Classification.ToString());
+                //duration
+                //available copy
+            }
+        }
 
 
     }

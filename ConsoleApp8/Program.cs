@@ -377,6 +377,12 @@ namespace ConsoleApp8
                 }
                 else if (option == "2")
                 {
+                    Console.WriteLine();
+                    string movieTitle = parseStringInput("Enter the title of the movie name to view the information: ");
+                    movieLibrarySystem.DisplayInfo(movieTitle);
+
+
+
                 }
                 else if (option == "3")
                 {
