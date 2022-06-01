@@ -184,6 +184,33 @@ namespace ConsoleApp8
             }
         }
 
+        public void ReturnDvd(IMember aMember, string movieTitle)
+        {
+            IMember searchMember = allMembers.Find(aMember);
+            if (searchMember == null)
+            {
+                Console.WriteLine("Member does not exist in the system!");
+                return;
+            }
+            IMovie searchMovie = allMovies.Search(movieTitle);
+            if (searchMovie == null)
+            {
+                Console.WriteLine("Movie \"" + movieTitle + "\" does not exist in the system!");
+            }
+            else
+            {
+                bool returnAccess = searchMovie.RemoveBorrower(aMember);
+                if (returnAccess == false)
+                {
+                    Console.WriteLine("Currently you are not borrowing this Movie(DVD) \"" + movieTitle + "\" !!");
+                }
+                else
+                {
+                    Console.WriteLine("You successfully returned \"" + searchMovie.Title.ToString() + "\" !!");
+                }
+            }
+        }
+
 
     }
 }

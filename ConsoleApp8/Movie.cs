@@ -98,7 +98,7 @@ public class Movie : IMovie
         {
             borrowers.Delete(member);
             availablecopies++;
-            noborrows--;
+            return true;
         }
         else 
         {

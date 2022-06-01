@@ -107,7 +107,7 @@ public class MemberCollection : IMemberCollection
                 }
             }
         }
-        Console.WriteLine(aMember + " is not in the sorted list!");
+        //Console.WriteLine(aMember + " is not in the sorted list!");
         //pos= -1;
     }
 
@@ -122,7 +122,7 @@ public class MemberCollection : IMemberCollection
             if (members[i] == member)
                 return true;
         }
-        Console.WriteLine(member + " is not in the sorted list!");
+        //Console.WriteLine(member + " is not in the sorted list!");
         return false;
     }
 

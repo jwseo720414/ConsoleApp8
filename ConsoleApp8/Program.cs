@@ -389,6 +389,8 @@ namespace ConsoleApp8
                 }
                 else if (option == "4")
                 {
+                    string movieTitle = parseStringInput("The name of the movie to return: ");
+                    movieLibrarySystem.ReturnDvd(member, movieTitle);
 
                 }
                 else if (option == "5")
