@@ -381,14 +381,15 @@ namespace ConsoleApp8
                     string movieTitle = parseStringInput("Enter the title of the movie name to view the information: ");
                     movieLibrarySystem.DisplayInfo(movieTitle);
 
-
-
                 }
                 else if (option == "3")
                 {
+                    string movieTitle  = parseStringInput("The name of the movie to borrow: ");
+                    movieLibrarySystem.BorrowDvd(member, movieTitle);
                 }
                 else if (option == "4")
                 {
+
                 }
                 else if (option == "5")
                 {

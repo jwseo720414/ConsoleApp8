@@ -129,8 +129,9 @@ namespace ConsoleApp8
             {
                 for (int i = 0; i < movies.Length; i++)
                 {
-                    Console.WriteLine(movies[i].Title.ToString());
-                    Console.WriteLine(movies[i].AvailableCopies.ToString());
+                    Console.WriteLine("Movie title: " + movies[i].Title.ToString());
+                    Console.WriteLine("Available Copies: " + movies[i].AvailableCopies.ToString());
+                    Console.WriteLine();
                 }
 
             }
@@ -146,11 +147,40 @@ namespace ConsoleApp8
             }
             else
             {
-                Console.WriteLine(movie.Title.ToString());
-                Console.WriteLine(movie.Genre.ToString());
-                Console.WriteLine(movie.Classification.ToString());
-                //duration
-                //available copy
+                Console.WriteLine(); 
+                Console.WriteLine("Movie title: " + movie.Title.ToString());
+                Console.WriteLine("Movie Genre: " + movie.Genre.ToString());
+                Console.WriteLine("Movie Classification: " + movie.Classification.ToString());
+                Console.WriteLine("Movie Duration: " + movie.Duration.ToString());
+                Console.WriteLine("Available Copies(DVDs): " + movie.AvailableCopies.ToString());
+                Console.WriteLine();
+            }
+        }
+
+        public void BorrowDvd(IMember aMember, string movieTitle)
+        {
+            IMember searchMember = allMembers.Find(aMember);
+            if (searchMember == null)
+            {
+                Console.WriteLine("Member does not exist in the system!");
+                return;
+            }
+            IMovie searchMovie = allMovies.Search(movieTitle);
+            if (searchMovie == null)
+            {
+                Console.WriteLine("Movie \"" + movieTitle + "\" does not exist in the system!");
+            }
+            else
+            {
+                bool borrowAccess = searchMovie.AddBorrower(aMember);
+                if (borrowAccess == false)
+                {
+                    Console.WriteLine("You already borrowing this Movie(DVD)!!");
+                }
+                else
+                {
+                    Console.WriteLine("You borrowed \"" + searchMovie.Title.ToString() + "\" !!");
+                }
             }
         }
 
