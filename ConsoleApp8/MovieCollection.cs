@@ -111,7 +111,6 @@ public class MovieCollection : IMovieCollection
         
         
     }
-
     private void Insert(IMovie movie, BTreeNode ptr)
     {
         if (movie.CompareTo(ptr.Movie) < 0)

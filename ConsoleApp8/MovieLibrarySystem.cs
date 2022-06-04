@@ -211,7 +211,78 @@ namespace ConsoleApp8
             }
         }
 
+        public void DisplayAllMembers(string movieTitle)
+        {
+            IMovie movie = allMovies.Search(movieTitle);
+            if (movie == null)
+            {
+                Console.WriteLine("Movie \"" + movieTitle + "\" does not exist in the system!");
+                return;
+            }
+            else
+            {
+                Console.WriteLine(movie.Borrowers.ToString());
 
+            }
+        }
+
+        public void DisplayTop(IMember member)
+        {
+            Console.WriteLine("");
+            IMovie [] list =  allMovies.ToArray();
+         
+            for (int i = 0; i < list.Length; i++)
+            {
+                for (int j = i; j < list.Length; j++)
+                {
+                    if (list[i].NoBorrowings<list[j].NoBorrowings)
+                    {
+                        IMovie temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+          
+            //取前三条
+            if (list.Length == 1)
+            {
+                Console.WriteLine(list[0].ToString());
+            }
+            if (list.Length == 2)
+            {
+                Console.WriteLine(list[0].ToString());
+                Console.WriteLine(list[1].ToString());
+            }
+            if (list.Length>=3)
+            {
+                Console.WriteLine(list[0].ToString());
+                Console.WriteLine(list[1].ToString());
+                Console.WriteLine(list[2].ToString());
+            }
+
+        }
+
+        /// <summary>
+        /// 显示当前登录人 借阅的电影信息
+        /// </summary>
+        /// <param name="member"></param>
+        public void DisplayMovie(IMember member)
+        {
+            //获取所有movie
+            Console.WriteLine("");
+            IMovie[] list = allMovies.ToArray();//获取当前所有电影
+            //遍历list
+            for (int i = 0; i < list.Length; i++)
+            {
+                IMovie movie = list[i];
+                if (movie.Borrowers.Search(member))
+                {
+                    //有当前借阅人打印电影信息
+                    Console.WriteLine(movie.ToString());
+                }
+            }
+        }
     }
 }
 

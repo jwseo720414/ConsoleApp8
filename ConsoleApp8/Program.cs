@@ -309,10 +309,19 @@ namespace ConsoleApp8
                 }
                 else if (option == "6")
                 {
+                    //显示当前正在租用某一特定电影的所有成员
+
+                    Console.WriteLine();
+                    string movieTitle = parseStringInput("Please enter the movie's title: ");
+                    
+                    movieLibrarySystem.DisplayAllMembers(movieTitle);
+
+
                 }
                 else
                 {
                     Console.WriteLine("Invalid Choice");
+                   
                 }
                 
                 Console.WriteLine();
@@ -395,9 +404,18 @@ namespace ConsoleApp8
                 }
                 else if (option == "5")
                 {
+                    movieLibrarySystem.DisplayMovie(member);
                 }
                 else if (option == "6")
                 {
+                    //获取所有的电影信息 然后根据借的数量进行冒泡排序
+                     movieLibrarySystem.DisplayTop(member);
+
+
+
+
+                     
+
                 }
                 else
                 {

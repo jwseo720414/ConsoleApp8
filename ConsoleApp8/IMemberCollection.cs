@@ -10,9 +10,9 @@ using System.Text;
 
 public interface IMemberCollection
 {
-    public int Capacity // get the capacity of this member collection 
-    {
-        get;
+        public int Capacity // get the capacity of this member collection 
+        {
+            get;
     }
     public int Number // get the number of members in this collection
     {
