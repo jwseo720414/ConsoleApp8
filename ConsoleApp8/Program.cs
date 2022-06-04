@@ -309,19 +309,14 @@ namespace ConsoleApp8
                 }
                 else if (option == "6")
                 {
-                    //显示当前正在租用某一特定电影的所有成员
-
+                    // Display all the borrowers of this movie
                     Console.WriteLine();
-                    string movieTitle = parseStringInput("Please enter the movie's title: ");
-                    
-                    movieLibrarySystem.DisplayAllMembers(movieTitle);
-
-
+                    string movieTitle = parseStringInput("Please enter the movie's title: ");                    
+                    movieLibrarySystem.DisplayAllBorrowers(movieTitle);
                 }
                 else
                 {
-                    Console.WriteLine("Invalid Choice");
-                   
+                    Console.WriteLine("Invalid Choice");                   
                 }
                 
                 Console.WriteLine();
@@ -404,18 +399,13 @@ namespace ConsoleApp8
                 }
                 else if (option == "5")
                 {
+                    Console.WriteLine();
                     movieLibrarySystem.DisplayMovie(member);
                 }
                 else if (option == "6")
                 {
-                    //获取所有的电影信息 然后根据借的数量进行冒泡排序
-                     movieLibrarySystem.DisplayTop(member);
-
-
-
-
-                     
-
+                    Console.WriteLine();
+                    movieLibrarySystem.DisplayTopThree();                  
                 }
                 else
                 {

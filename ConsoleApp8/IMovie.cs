@@ -12,7 +12,6 @@ public enum MovieGenre
     Western = 5
 }
 
-
 //Movie classification type 
 public enum MovieClassification
 {
@@ -93,7 +92,6 @@ public interface IMovie
     //                  otherwise, return false.
     bool RemoveBorrower(IMember member); 
 
-
     //Define how to comapre two Movie objects
     //This movie's title is compared to another movie's title 
     //Pre-condition: nil
@@ -106,6 +104,5 @@ public interface IMovie
     //Pre-condition: nil
     //Post-condition: A string containing the title, genre, classification, duration, and the number of available copies of this movie has been returned
     string ToString();
-
 }
 

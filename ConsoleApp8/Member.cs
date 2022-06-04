@@ -10,14 +10,11 @@ public class Member : IMember
     private string contactNumber;
     private string pin;
 
-
     // Properties
     public string FirstName { get { return firstName; } set { firstName = value; } }  // Get and set the first name of this member
     public string LastName { get { return lastName; } set { lastName = value; } }  // Get and set the last name of this member
     public string ContactNumber { get { return contactNumber; } set { contactNumber = value; } }  // Get and set the contact number of this member
     public string Pin { get { return pin; } set { pin = value; } }// Get and set a pin number
-
-
 
     // Constructor with member's first name and lastname
     public Member(string firstName, string lastName)
@@ -34,8 +31,6 @@ public class Member : IMember
         this.contactNumber = contactNumber;
         this.pin = pin;
     }
-
-
 
     // Define how to comapre two member objects
     // This member's full name is compared to another member's full name 
@@ -58,8 +53,6 @@ public class Member : IMember
         else
             return 1;
     }
-
-
 
     // Return a string containing the first name, last name and contact number of this memeber
     // Pre-condition: nil

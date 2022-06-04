@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 
-
-
 public class Movie : IMovie
 {
     private string title;  // the titleof this movie
@@ -15,7 +13,6 @@ public class Movie : IMovie
     private int totalcopies; // the total number of copies of this movie
     private int noborrows; // the number of times this movie has been borrowed so far
     private IMemberCollection borrowers;  // a collection of members that are currently borrowing a copy of this movie
-
 
     // a constructor 
     public Movie(string t, MovieGenre g, MovieClassification c, int d, int n)
@@ -60,7 +57,6 @@ public class Movie : IMovie
     //get all the members who are currently holding this movie
     public IMemberCollection Borrowers { get { return borrowers; } set { borrowers = value; } }
 
-
     //Add a member to the borrowers list of this movie
     //Pre-condition: number of available copies is greater than or equals to 1 
     //Post-condition:   if the member is not in the borrowers list, add the member to the borrower list,
@@ -80,10 +76,7 @@ public class Movie : IMovie
         {
             return false;
         }
-        return false;
-
-        
-
+        return false;       
     }
 
     //Remove a member from the borrower list of this movie
@@ -93,7 +86,6 @@ public class Movie : IMovie
     //                  otherwise, return false.
     public bool RemoveBorrower(IMember member)
     {
-        //To be completed
         if (borrowers.Search(member) == true)
         {
             borrowers.Delete(member);
@@ -104,8 +96,6 @@ public class Movie : IMovie
         {
             return false;
         }
-        return false;
-
     }
 
     //Define how to comapre two Movie objects
@@ -116,7 +106,6 @@ public class Movie : IMovie
     //                 return +1, if this movie's title is greater than another movie's title by dictionary order
     public int CompareTo(IMovie another)
     {
-        //To be completed
         Movie movie = (Movie)another;
         if (this.Title.CompareTo(movie.Title) < 0)
         {
@@ -129,7 +118,6 @@ public class Movie : IMovie
         }
         else
             return 1;
-
     }
 
     //Return a string containing the title, genre, classification, duration, and the number of copies of this movie currently in the  library 
@@ -137,9 +125,8 @@ public class Movie : IMovie
     //Post-condition: A string containing the title, genre, classification, duration, and the number of available copies of this movie has been returned
     public string ToString()
     {
-        //To be completed
         string s = "";
-        s = s + "title: " + title + "\n" + "genre: " + genre + "\n" + "classification: " + classification + "\n" + "duration: " + duration + "\n" + "available copies: " + availablecopies;
+        s = s + "Title: " + title + "\n" + "Genre: " + genre + "\n" + "Classification: " + classification + "\n" + "Duration: " + duration + "\n" + "Available Copies: " + availablecopies;
         return s;
     }
 }

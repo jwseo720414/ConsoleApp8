@@ -2,8 +2,6 @@
 //The implementation of MemberCollection ADT
 using System;
 using System.Linq;
-
-
 public class MemberCollection : IMemberCollection
 {
     // Fields
@@ -22,14 +20,10 @@ public class MemberCollection : IMemberCollection
     // pre-condition: nil
     // post-condition: return the number of members in this member collection and this member collection remains unchanged
     public int Number { get { return count; } }
-
-   
-
-
+       
     // Constructor - to create an object of member collection 
     // Pre-condition: capacity > 0
     // Post-condition: an object of this member collection class is created
-
     public MemberCollection(int capacity)
     {
         if (capacity > 0)
@@ -83,11 +77,7 @@ public class MemberCollection : IMemberCollection
     // Pre-condition: nil
     // Post-condition: the given member has been removed from this member collection, if the given meber was in the member collection
     public void Delete(IMember aMember)
-    {
-        // To be implemented by students in Phase 1
-
-        //bool pos = Search(aMember);
-        
+    {        
         for (int i = 0; i <= count - 1; i++)
         {
             if (members[i] == aMember)
@@ -107,8 +97,6 @@ public class MemberCollection : IMemberCollection
                 }
             }
         }
-        //Console.WriteLine(aMember + " is not in the sorted list!");
-        //pos= -1;
     }
 
     // Search a given member in this member collection 
@@ -122,7 +110,6 @@ public class MemberCollection : IMemberCollection
             if (members[i] == member)
                 return true;
         }
-        //Console.WriteLine(member + " is not in the sorted list!");
         return false;
     }
 
@@ -151,11 +138,8 @@ public class MemberCollection : IMemberCollection
     }
 
     // Find a given member in this member collection 
-
     // Pre-condition: nil
-
     // Post-condition: return the reference of the member object in the member collection, if this member is in the member collection; return null otherwise; member collection remains unchanged
-
     public IMember Find(IMember member)
     {
         for (int i = 0; i <= count - 1; i++)
@@ -165,6 +149,5 @@ public class MemberCollection : IMemberCollection
         }
         return null;
     }
-
 }
 
