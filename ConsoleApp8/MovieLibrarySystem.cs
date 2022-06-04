@@ -49,8 +49,32 @@ namespace ConsoleApp8
                 return;
             }
 
-            allMembers.Delete(aMember);
-            Console.WriteLine("Member removed from the system!");
+            //判断当前用户是否租赁电影 如果租赁不能删除
+
+            IMovie[] list = allMovies.ToArray();
+            bool isBorrower = false;
+            //遍历list
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                IMovie movie = list[i];
+                if (movie.Borrowers.Search(searchedMember))
+                {
+                    isBorrower = true;
+                    break;
+
+                }
+            }
+            if (isBorrower)
+            {
+                Console.WriteLine("Current user rents movie cannot delete!");
+            }
+            else
+            {
+                allMembers.Delete(aMember);
+                Console.WriteLine("Member removed from the system!");
+            }
+           
         }
 
         public void DisplayPhoneNumber(IMember aMember)

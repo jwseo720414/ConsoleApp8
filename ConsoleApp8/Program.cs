@@ -273,7 +273,7 @@ namespace ConsoleApp8
                     string movieTitle = parseStringInput("Please enter the movie's title: ");
                     movieLibrarySystem.RemoveDVD(movieTitle);
 
-
+                    
                 }
                 else if (option == "3")
                 {
