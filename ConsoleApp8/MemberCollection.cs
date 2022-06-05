@@ -77,25 +77,42 @@ public class MemberCollection : IMemberCollection
     // Pre-condition: nil
     // Post-condition: the given member has been removed from this member collection, if the given meber was in the member collection
     public void Delete(IMember aMember)
-    {        
-        for (int i = 0; i <= count - 1; i++)
-        {
-            if (members[i] == aMember)
-            {
-                if (i != -1)
-                {
-                    for (int i1 = i; i1 < count - 1; i1++)
-                    {
-                        members[i1] = members[i1 + 1];
-                    }
+    {
+        //for (int i = 0; i <= count - 1; i++)
+        //{
+        //    if (members[i] == aMember)
+        //    {
+        //        if (i != -1)
+        //        {
+        //            for (int i1 = i; i1 < count - 1; i1++)
+        //            {
+        //                members[i1] = members[i1 + 1];
+        //            }
 
-                    count--;
-                }
-                else
-                {
-                    Console.WriteLine(aMember + " is not removed successfully as it is not in the sorted list!");
-                }
+        //            count--;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine(aMember + " is not removed successfully as it is not in the sorted list!");
+        //        }
+        //    }
+        //}
+        int i;
+        for (i = 0; i < count; ++i)
+        {
+            if (members[i].LastName.CompareTo(aMember.LastName) == 0 && members[i].FirstName.CompareTo(aMember.FirstName) == 0)
+            {
+                break;
             }
+        }
+        if (i < count)
+        {
+            while (i < count - 1)
+            {
+                members[i] = members[i + 1];
+                i++;
+            }
+            count--;
         }
     }
 
