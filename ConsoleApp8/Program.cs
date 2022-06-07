@@ -273,7 +273,7 @@ namespace ConsoleApp8
                     string movieTitle = parseStringInput("Please enter the movie's title: ");
                     movieLibrarySystem.RemoveDVD(movieTitle);
 
-
+                    
                 }
                 else if (option == "3")
                 {
@@ -309,10 +309,14 @@ namespace ConsoleApp8
                 }
                 else if (option == "6")
                 {
+                    // Display all the borrowers of this movie
+                    Console.WriteLine();
+                    string movieTitle = parseStringInput("Please enter the movie's title: ");                    
+                    movieLibrarySystem.DisplayAllBorrowers(movieTitle);
                 }
                 else
                 {
-                    Console.WriteLine("Invalid Choice");
+                    Console.WriteLine("Invalid Choice");                   
                 }
                 
                 Console.WriteLine();
@@ -395,9 +399,13 @@ namespace ConsoleApp8
                 }
                 else if (option == "5")
                 {
+                    Console.WriteLine();
+                    movieLibrarySystem.DisplayMovie(member);
                 }
                 else if (option == "6")
                 {
+                    Console.WriteLine();
+                    movieLibrarySystem.DisplayTopThree();                  
                 }
                 else
                 {

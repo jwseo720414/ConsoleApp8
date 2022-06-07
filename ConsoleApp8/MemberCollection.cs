@@ -2,8 +2,6 @@
 //The implementation of MemberCollection ADT
 using System;
 using System.Linq;
-
-
 public class MemberCollection : IMemberCollection
 {
     // Fields
@@ -22,14 +20,10 @@ public class MemberCollection : IMemberCollection
     // pre-condition: nil
     // post-condition: return the number of members in this member collection and this member collection remains unchanged
     public int Number { get { return count; } }
-
-   
-
-
+       
     // Constructor - to create an object of member collection 
     // Pre-condition: capacity > 0
     // Post-condition: an object of this member collection class is created
-
     public MemberCollection(int capacity)
     {
         if (capacity > 0)
@@ -84,31 +78,42 @@ public class MemberCollection : IMemberCollection
     // Post-condition: the given member has been removed from this member collection, if the given meber was in the member collection
     public void Delete(IMember aMember)
     {
-        // To be implemented by students in Phase 1
+        //for (int i = 0; i <= count - 1; i++)
+        //{
+        //    if (members[i] == aMember)
+        //    {
+        //        if (i != -1)
+        //        {
+        //            for (int i1 = i; i1 < count - 1; i1++)
+        //            {
+        //                members[i1] = members[i1 + 1];
+        //            }
 
-        //bool pos = Search(aMember);
-        
-        for (int i = 0; i <= count - 1; i++)
+        //            count--;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine(aMember + " is not removed successfully as it is not in the sorted list!");
+        //        }
+        //    }
+        //}
+        int i;
+        for (i = 0; i < count; ++i)
         {
-            if (members[i] == aMember)
+            if (members[i].LastName.CompareTo(aMember.LastName) == 0 && members[i].FirstName.CompareTo(aMember.FirstName) == 0)
             {
-                if (i != -1)
-                {
-                    for (int i1 = i; i1 < count - 1; i1++)
-                    {
-                        members[i1] = members[i1 + 1];
-                    }
-
-                    count--;
-                }
-                else
-                {
-                    Console.WriteLine(aMember + " is not removed successfully as it is not in the sorted list!");
-                }
+                break;
             }
         }
-        //Console.WriteLine(aMember + " is not in the sorted list!");
-        //pos= -1;
+        if (i < count)
+        {
+            while (i < count - 1)
+            {
+                members[i] = members[i + 1];
+                i++;
+            }
+            count--;
+        }
     }
 
     // Search a given member in this member collection 
@@ -122,7 +127,6 @@ public class MemberCollection : IMemberCollection
             if (members[i] == member)
                 return true;
         }
-        //Console.WriteLine(member + " is not in the sorted list!");
         return false;
     }
 
@@ -151,11 +155,8 @@ public class MemberCollection : IMemberCollection
     }
 
     // Find a given member in this member collection 
-
     // Pre-condition: nil
-
     // Post-condition: return the reference of the member object in the member collection, if this member is in the member collection; return null otherwise; member collection remains unchanged
-
     public IMember Find(IMember member)
     {
         for (int i = 0; i <= count - 1; i++)
@@ -165,6 +166,5 @@ public class MemberCollection : IMemberCollection
         }
         return null;
     }
-
 }
 
