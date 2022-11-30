@@ -13,3 +13,6 @@ Setup and Start-up
   
 # What is this? 🤔
 # Features 👀
+Functional requirements for MemberCollection:
+ - IsValidContactNumber
+ - 
