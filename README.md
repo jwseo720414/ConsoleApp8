@@ -1,5 +1,7 @@
 CAB301 Assignement Weiran Wong, Jaewon Seo & Zi Teng Tan (Melissa)
 
+[CAB301_Technical_Report (1).pdf](https://github.com/jwseo720414/ConsoleApp8/files/10335972/CAB301_Technical_Report.1.pdf)
+
 # Community-Library System to manage its Movie DVDs
 Downloads To run successfully run and test the application you will need the following installed:
 
