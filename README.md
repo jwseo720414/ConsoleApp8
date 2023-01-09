@@ -8,6 +8,8 @@ Downloads To run successfully run and test the application you will need the fol
 
 Visual Studio 2022
 
+Download SDK .NET Core 3.1 - https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-3.1.426-windows-x64-installer
+
 Setup and Start-up
 
   1. Open project in Visual Studio
