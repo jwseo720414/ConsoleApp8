@@ -14,7 +14,7 @@ Setup and Start-up
 
   1. Open project in Visual Studio
   2. Right click on the project ConsoleApp8 in the solution explorer section right hand side of Visual Studio.
-  3. Select Property and change the framework which might be set to .Net 6.0 or Newer to older version .Net Core 3.1.
+  3. Select Property and change the framework which might be set to .Net 6.0 or Newer to downloaded older version .Net Core 3.1.
   4. Run the project (Main method is in Program.cs)
   
 # What is this? 🤔
